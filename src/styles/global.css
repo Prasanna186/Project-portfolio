@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-container: #201f1f;
+  --color-secondary-container: #13ff43;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed-dim: #ffb693;
+  --color-secondary-fixed: #72ff70;
+  --color-outline-variant: #5a4136;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-on-surface-variant: #e2bfb0;
+  --color-surface-bright: #3a3939;
+  --color-surface: #131313;
+  --color-on-primary: #561f00;
+  --color-on-primary-fixed: #351000;
+  --color-on-secondary: #003907;
+  --color-surface-variant: #353534;
+  --color-background: #131313;
+  --color-surface-container-high: #2a2a2a;
+  --color-tertiary-container: #989999;
+  --color-on-surface: #e5e2e1;
+  --color-on-primary-fixed-variant: #7a3000;
+  --color-on-tertiary: #2f3131;
+  --color-on-error: #690005;
+  --color-on-tertiary-fixed-variant: #454747;
+  --color-on-tertiary-container: #2f3132;
+  --color-error-container: #93000a;
+  --color-outline: #a98a7d;
+  --color-on-background: #e5e2e1;
+  --color-secondary: #ecffe3;
+  --color-on-secondary-fixed: #002203;
+  --color-primary-container: #ff6b00;
+  --color-on-secondary-container: #007117;
+  --color-technical-highlight: #FF6B00;
+  --color-secondary-fixed-dim: #00e639;
+  --color-surface-border: #262626;
+  --color-tertiary: #c6c6c7;
+  --color-error: #ffb4ab;
+  --color-inverse-primary: #a04100;
+  --color-status-ready: #00FF41;
+  --color-inverse-on-surface: #313030;
+  --color-inverse-surface: #e5e2e1;
+  --color-primary-fixed: #ffdbcc;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-surface-dim: #131313;
+  --color-surface-tint: #ffb693;
+  --color-surface-container-highest: #353534;
+  --color-on-primary-container: #572000;
+  --color-on-secondary-fixed-variant: #00530e;
+  --color-primary: #ffb693;
+  --color-surface-container-low: #1c1b1b;
+  --color-tertiary-fixed: #e2e2e2;
+
+  --font-headline-md: "Hanken Grotesk", sans-serif;
+  --font-button: "Hanken Grotesk", sans-serif;
+  --font-body-lg: "Hanken Grotesk", sans-serif;
+  --font-body-md: "Hanken Grotesk", sans-serif;
+  --font-label-mono: "JetBrains Mono", monospace;
+  --font-display-lg: "Hanken Grotesk", sans-serif;
+  --font-display-lg-mobile: "Hanken Grotesk", sans-serif;
+
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+  --spacing-container-max: 1440px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 4px;
+}
+
+@layer base {
+  html {
+    font-family: "Hanken Grotesk", sans-serif;
+    background-color: #131313;
+    color: #e5e2e1;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: #131313;
+    color: #e5e2e1;
+  }
+
+  /* Custom industrial scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #131313;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF6B00;
+  }
+}
+
+/* Typography helper utilities */
+.text-label-mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.text-headline-md {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.text-body-md {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.text-button {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+/* Studio Arch Work Grid system */
+.work-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1024px) {
+  .work-grid-container {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .work-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #262626;
+  background-color: #1A1A1A;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-item:hover {
+  transform: translate(4px, 4px);
+  box-shadow: -4px -4px 0px 0px #FF6B00;
+}
+
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(13, 13, 13, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-top: 2px solid #FF6B00;
+}
+
+.work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+/* Span configurations for asymmetric grid */
+.col-span-12 { grid-column: span 12; }
+.col-span-8 { grid-column: span 8; }
+.col-span-6 { grid-column: span 6; }
+.col-span-4 { grid-column: span 4; }
+.col-span-3 { grid-column: span 3; }
+
+@media (max-width: 1024px) {
+  .col-span-8 { grid-column: span 8; }
+  .col-span-6 { grid-column: span 8; }
+  .col-span-4 { grid-column: span 4; }
+}
+
+@media (max-width: 768px) {
+  .col-span-12, .col-span-8, .col-span-6, .col-span-4, .col-span-3 {
+    grid-column: span 4;
+  }
+}
