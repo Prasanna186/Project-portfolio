@@ -30,6 +30,7 @@
     "@qwikest/icons": "^0.0.13",
     "@tailwindcss/vite": "^4.3.3",
     "@types/bun": "latest",
+    "@types/minimatch": "5.1.2",
     "@types/node": "20.19.0",
     "autoprefixer": "^10.5.4",
     "eslint": "9.32.0",
