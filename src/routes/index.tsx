@@ -105,17 +105,19 @@ export default component$(() => {
                     style={`background-image: url('${project.placeholderImage}')`}
                   ></div>
 
-                  {/* Overlay — type + status only */}
-                  <div class="absolute inset-0 bg-background/55 flex flex-col justify-between p-2.5">
-                    <div class="flex justify-between items-start">
-                      <span class="font-label-mono text-[9px] uppercase px-1.5 py-0.5 bg-background/80 border border-surface-border text-technical-highlight">
+                  {/* Overlay — badges only */}
+                  <div class="absolute inset-0 flex flex-col justify-between p-2">
+                    <div class="flex justify-between items-start gap-1">
+                      {/* Type badge */}
+                      <span class="font-label-mono text-[10px] uppercase px-2 py-0.5 bg-background border border-surface-border text-technical-highlight font-bold leading-tight shrink-0">
                         {project.projectType === "mobile" ? "MOBILE" : project.projectType === "desktop" ? "DESKTOP" : "WEB"}
                       </span>
+                      {/* Status badge */}
                       <span
-                        class={`font-label-mono text-[8px] px-1.5 py-0.5 border uppercase font-semibold ${
+                        class={`font-label-mono text-[9px] px-1.5 py-0.5 border uppercase font-bold leading-tight text-right ${
                           project.statusType === "ready"
-                            ? "bg-status-ready/15 text-status-ready border-status-ready/25"
-                            : "bg-technical-highlight/15 text-technical-highlight border-technical-highlight/25"
+                            ? "bg-background text-status-ready border-status-ready/50"
+                            : "bg-background text-technical-highlight border-technical-highlight/50"
                         }`}
                       >
                         {project.statusBadge}
