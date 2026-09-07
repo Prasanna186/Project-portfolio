@@ -140,16 +140,11 @@ export default component$(() => {
                 </div>
 
                 {/* Minimal info strip */}
-                <div class="px-3 py-2.5 flex items-center justify-between gap-2">
-                  <div class="flex flex-col gap-0.5 min-w-0">
-                    <span class="font-label-mono text-[9px] text-technical-highlight uppercase tracking-wide truncate">
-                      {project.codename}
-                    </span>
-                    <h2 class="font-headline-md text-sm sm:text-base font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
-                      {project.title}
-                    </h2>
-                  </div>
-                  <span class="font-label-mono text-[9px] text-on-surface-variant uppercase shrink-0 text-right leading-tight max-w-[80px]">
+                <div class="px-3 py-2.5 flex flex-col gap-0.5">
+                  <h2 class="font-headline-md text-sm sm:text-base font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
+                    {project.title}
+                  </h2>
+                  <span class="font-label-mono text-[9px] text-on-surface-variant uppercase tracking-wide truncate">
                     {project.category}
                   </span>
                 </div>

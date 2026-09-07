@@ -213,8 +213,8 @@ export default component$(() => {
                     </div>
                   </div>
                   <div class="px-2.5 py-2 flex flex-col gap-0.5">
-                    <span class="font-label-mono text-[8px] text-technical-highlight uppercase truncate">{p.codename}</span>
                     <span class="font-headline-md text-xs sm:text-sm font-bold text-on-background group-hover:text-technical-highlight transition-colors truncate">{p.title}</span>
+                    <span class="font-label-mono text-[8px] text-on-surface-variant uppercase truncate">{p.category}</span>
                   </div>
                 </a>
               );
