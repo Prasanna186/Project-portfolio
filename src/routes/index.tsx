@@ -109,12 +109,12 @@ export default component$(() => {
                   <div class="absolute inset-0 flex flex-col justify-between p-2">
                     <div class="flex justify-between items-start gap-1">
                       {/* Type badge */}
-                      <span class="font-label-mono text-[10px] uppercase px-2 py-0.5 bg-background border border-surface-border text-technical-highlight font-bold leading-tight shrink-0">
+                      <span class="font-label-mono text-xs uppercase px-2 py-0.5 bg-background border border-surface-border text-technical-highlight font-bold leading-tight shrink-0">
                         {project.projectType === "mobile" ? "MOBILE" : project.projectType === "desktop" ? "DESKTOP" : "WEB"}
                       </span>
                       {/* Status badge */}
                       <span
-                        class={`font-label-mono text-[9px] px-1.5 py-0.5 border uppercase font-bold leading-tight text-right ${
+                        class={`font-label-mono text-[11px] px-1.5 py-0.5 border uppercase font-bold leading-tight text-right ${
                           project.statusType === "ready"
                             ? "bg-background text-status-ready border-status-ready/50"
                             : "bg-background text-technical-highlight border-technical-highlight/50"
@@ -128,10 +128,10 @@ export default component$(() => {
 
                 {/* Minimal info strip */}
                 <div class="px-3 py-2.5 flex flex-col gap-0.5">
-                  <h2 class="font-headline-md text-sm sm:text-base font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
+                  <h2 class="font-headline-md text-base sm:text-lg font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
                     {project.title}
                   </h2>
-                  <span class="font-label-mono text-[9px] text-on-surface-variant uppercase tracking-wide truncate">
+                  <span class="font-label-mono text-[11px] text-on-surface-variant uppercase tracking-wide truncate">
                     {project.category}
                   </span>
                 </div>
