@@ -101,9 +101,9 @@ export default component$(() => {
           </div>
 
           {/* Right — image with proper aspect ratio */}
-          <div class={`w-full relative border border-surface-border bg-surface overflow-hidden group/img ${imgClass} max-h-[70vh] lg:max-h-none`}>
+          <div class={`w-full relative border border-surface-border bg-surface overflow-hidden ${imgClass} max-h-[70vh] lg:max-h-none`}>
             <div
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover/img:scale-[1.02]"
+              class="absolute inset-0 bg-cover bg-center"
               style={`background-image: url('${project.placeholderImage}')`}
             ></div>
             <div class="absolute inset-0 bg-background/40 flex flex-col justify-between p-3 pointer-events-none">
@@ -193,7 +193,7 @@ export default component$(() => {
                 >
                   <div class={`w-full relative bg-surface overflow-hidden ${thumbClass}`}>
                     <div
-                      class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                      class="absolute inset-0 bg-cover bg-center"
                       style={`background-image: url('${p.placeholderImage}')`}
                     ></div>
                     <div class="absolute inset-0 bg-background/50"></div>

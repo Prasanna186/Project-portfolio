@@ -8,7 +8,6 @@ import {
 
 export default component$(() => {
   const activeCategory = useSignal<ProjectCategory>("ALL");
-  const hoveredId = useSignal<string | null>(null);
 
   const categories: ProjectCategory[] = [
     "ALL",
@@ -98,13 +97,11 @@ export default component$(() => {
                 key={project.id}
                 href={`/projects/${project.id}`}
                 class="masonry-item block bg-surface-container-high/50 border border-surface-border group hover:border-outline-variant transition-all duration-200 relative overflow-hidden card-hover"
-                onMouseEnter$={() => (hoveredId.value = project.id)}
-                onMouseLeave$={() => (hoveredId.value = null)}
               >
                 {/* Image */}
-                <div class={`w-full relative bg-surface overflow-hidden group/img ${imgClass}`}>
+                <div class={`w-full relative bg-surface overflow-hidden ${imgClass}`}>
                   <div
-                    class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover/img:scale-105"
+                    class="absolute inset-0 bg-cover bg-center"
                     style={`background-image: url('${project.placeholderImage}')`}
                   ></div>
 
@@ -122,14 +119,6 @@ export default component$(() => {
                         }`}
                       >
                         {project.statusBadge}
-                      </span>
-                    </div>
-
-                    {/* Hover CTA */}
-                    <div class={`flex items-center justify-center transition-opacity duration-200 ${hoveredId.value === project.id ? "opacity-100" : "opacity-0"}`}>
-                      <span class="font-label-mono text-[10px] uppercase px-3 py-1.5 bg-technical-highlight text-black font-bold flex items-center gap-1">
-                        VIEW PROJECT
-                        <span class="material-symbols-outlined text-xs">arrow_forward</span>
                       </span>
                     </div>
                   </div>
