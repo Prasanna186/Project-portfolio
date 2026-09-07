@@ -15,7 +15,6 @@ export type ProjectType = "mobile" | "web" | "desktop";
 export interface Project {
   id: string;
   title: string;
-  codename: string;
   category: "SYSTEMS & GPU" | "ENTERPRISE & CLOUD" | "AI & ML" | "FULL-STACK & MOBILE";
   projectType: ProjectType;
   statusBadge: string;
@@ -26,8 +25,8 @@ export interface Project {
   keyMetrics: ProjectMetric[];
   techStack: string[];
   architectureHighlights: string[];
-  wireframeTag: string;
   placeholderImage: string;
+  galleryImages?: string[];
   liveLink?: string;
 }
 
@@ -35,7 +34,6 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "after-motion",
     title: "After Motion",
-    codename: "SYS_APP_AM01",
     category: "SYSTEMS & GPU",
     projectType: "mobile",
     statusBadge: "GOOGLE PLAY • 10,000+ DOWNLOADS",
@@ -66,15 +64,17 @@ export const PROJECTS_DATA: Project[] = [
       "3D camera transformation engine with perspective projection",
       "Bézier keyframe curve editor with cubic velocity interpolation",
     ],
-    wireframeTag: "AM_VIDEO_ENGINE_V2",
     placeholderImage:
       "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://play.google.com/store/apps/details?id=com.aftermotion.app",
   },
   {
     id: "zenthra-v2",
     title: "Zenthra UI Framework",
-    codename: "SYS_GPU_ZN02",
     category: "SYSTEMS & GPU",
     projectType: "desktop",
     statusBadge: "GPU ENGINE & APPS",
@@ -105,15 +105,100 @@ export const PROJECTS_DATA: Project[] = [
       "LazyContainer virtualization handling massive datasets at locked 60 FPS",
       "Includes ZenFile & After Motion Desktop production application suites",
     ],
-    wireframeTag: "WGPU_RENDER_PIPELINE",
     placeholderImage:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://zenthralabs.dev",
+  },
+  {
+    id: "zenfile",
+    title: "ZenFile Manager",
+    category: "SYSTEMS & GPU",
+    projectType: "desktop",
+    statusBadge: "NATIVE RUST • OPEN SOURCE",
+    statusType: "ready",
+    summary:
+      "Native, dependency-light desktop file manager built with the Zenthra UI framework, featuring instant directory listings and sub-4ms immediate-mode redraws.",
+    description:
+      "A high-performance cross-platform desktop file manager built entirely in Rust on the Zenthra immediate-mode GUI framework. Reads directories directly from the OS filesystem with no virtualization layer or runtime bloat, rendering directory trees, file lists, and toolbars in under 4ms on every frame. Features LazyContainer list virtualization for 100,000+ files, inline file metadata inspector, live preview pane, contextual right-click actions, language-aware file icons, and multi-color folder labeling.",
+    colSpanDesktop: 4,
+    keyMetrics: [
+      { label: "STARTUP", value: "< 4ms Launch" },
+      { label: "REDRAW SPEED", value: "< 4ms Frame" },
+      { label: "VIRTUALIZATION", value: "LazyContainer" },
+      { label: "BINARY", value: "Single Standalone" },
+    ],
+    techStack: [
+      "Rust 2021",
+      "Zenthra UI Framework",
+      "WGPU 29",
+      "Winit 0.30",
+      "Taffy (Layout)",
+      "Cosmic-Text",
+      "LazyContainer",
+    ],
+    architectureHighlights: [
+      "Direct OS filesystem traversal with zero webview or Electron memory overhead",
+      "LazyContainer list virtualization handling 100,000+ files at locked 60 FPS",
+      "Immediate-mode widget tree redrawing all controls in under 4ms per frame",
+      "Inline live preview panel, language-aware file icon recognition, and folder color tags",
+    ],
+    placeholderImage: "/assets/projects/zenfile/main-default-size-and-color.png",
+    galleryImages: [
+      "/assets/projects/zenfile/zenfile-list-view.png",
+      "/assets/projects/zenfile/zenfile-right-panel-details-and-preview.png",
+      "/assets/projects/zenfile/coding-language-support.png",
+    ],
+    liveLink: "https://zenthralabs.dev/products/zenthra/apps/file-manager/",
+  },
+  {
+    id: "zenthra-view",
+    title: "Zenthra View",
+    category: "SYSTEMS & GPU",
+    projectType: "desktop",
+    statusBadge: "GPU CANVAS • 60 FPS",
+    statusType: "ready",
+    summary:
+      "Blazing fast native desktop image viewer built with Zenthra UI, featuring GPU texture blitting, virtualized filmstrips, and sub-millisecond input response.",
+    description:
+      "A high-performance desktop image viewer engineered with Rust and WGPU for photographer workflows and massive media directories. Uploads image textures directly to GPU buffers via a dedicated WGPU pipeline, computing zooming, viewport panning, and rotation inside vertex shaders at locked 60 FPS. Features a virtualized filmstrip capable of handling 100,000+ images with dynamic garbage collection, a split sidebar directory tree with real-time filesystem watchers, and non-blocking background metadata parsing.",
+    colSpanDesktop: 4,
+    keyMetrics: [
+      { label: "INIT SPEED", value: "< 4ms Launch" },
+      { label: "TEXTURE BLITTING", value: "Vertex Shaders" },
+      { label: "FILMSTRIP", value: "100k+ Virtualized" },
+      { label: "FRAMERATE", value: "60 FPS Locked" },
+    ],
+    techStack: [
+      "Rust 2021",
+      "Zenthra UI Framework",
+      "WGPU 29",
+      "OpenGL Drawing Context",
+      "Taffy Flexbox",
+      "Cosmic-Text",
+      "Async Metadata Parser",
+    ],
+    architectureHighlights: [
+      "Direct GPU texture blitting with vertex-shader zooming, panning, and rotation",
+      "Virtualized filmstrip handling 100,000+ files with dynamic garbage collection",
+      "Real-time filesystem watchers (hot reloading) and split sidebar directory browser",
+      "Non-blocking background image metadata parser tracking dimensions and memory",
+    ],
+    placeholderImage: "/assets/projects/zenthra-view/04.jpeg",
+    galleryImages: [
+      "/assets/projects/zenthra-view/01.png",
+      "/assets/projects/zenthra-view/02.png",
+      "/assets/projects/zenthra-view/03.png",
+      "/assets/projects/zenthra-view/05.png",
+    ],
+    liveLink: "https://zenthralabs.dev/products/zenthra/apps/zenthra-view/",
   },
   {
     id: "pratibha-erp",
     title: "Pratibha Institute ERP",
-    codename: "B2B_GOV_PR03",
     category: "ENTERPRISE & CLOUD",
     projectType: "web",
     statusBadge: "CLIENT PRODUCTION",
@@ -144,15 +229,17 @@ export const PROJECTS_DATA: Project[] = [
       "Automated tuition fee ledger computation and receipt generation",
       "Role-based access control with Argon2 / JWT authentication",
     ],
-    wireframeTag: "ERP_DIFF_ENGINE_V1",
     placeholderImage:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://frontend-pratibha-inst.vercel.app/login",
   },
   {
     id: "kairaba-health",
     title: "Kairaba Health Assistant",
-    codename: "AI_ML_KH04",
     category: "AI & ML",
     projectType: "mobile",
     statusBadge: "GEMINI 2.5 FLASH • MULTIMODAL",
@@ -183,14 +270,16 @@ export const PROJECTS_DATA: Project[] = [
       "Multilingual cardiovascular risk scoring engine with dialect keyword parsing",
       "Emergency red-flag escalation to regional hospital triage centers",
     ],
-    wireframeTag: "GENAI_MULTIMODAL_AI",
     placeholderImage:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80",
+    ],
   },
   {
     id: "nexassist-hub",
     title: "NexAssist Hub",
-    codename: "ENT_ORCL_NX05",
     category: "ENTERPRISE & CLOUD",
     projectType: "web",
     statusBadge: "ENTERPRISE PROXY & AI",
@@ -222,15 +311,17 @@ export const PROJECTS_DATA: Project[] = [
       "Enterprise audit logging and role-based access control (RBAC)",
       "Interactive analytics visualizer with financial variance charts",
     ],
-    wireframeTag: "ORCL_PROXY_GATEWAY",
     placeholderImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://nexassistfrontend.vercel.app/home",
   },
   {
     id: "filmyweds",
     title: "FilmyWeds Marketplace",
-    codename: "WEB_MKT_FW06",
     category: "FULL-STACK & MOBILE",
     projectType: "web",
     statusBadge: "FULL-STACK MARKETPLACE",
@@ -262,15 +353,17 @@ export const PROJECTS_DATA: Project[] = [
       "In-browser Monaco editor for publishing editorial articles and blogs",
       "Hardened API with Helmet, rate limiting, and mongo-sanitizer protection",
     ],
-    wireframeTag: "MKT_GEOSPATIAL_GRID",
     placeholderImage:
       "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://filmyweds-frontend.vercel.app/login",
   },
   {
     id: "zenthralabs",
     title: "ZenthraLabs Cloud Platform",
-    codename: "CLD_SAAS_ZL07",
     category: "ENTERPRISE & CLOUD",
     projectType: "web",
     statusBadge: "LIVE PLATFORM",
@@ -301,9 +394,12 @@ export const PROJECTS_DATA: Project[] = [
       "Dynamic asset catalog serving LUTs, presets, and fonts",
       "Admin moderation portal and developer documentation distribution",
     ],
-    wireframeTag: "EDGE_SYNC_GATEWAY",
     placeholderImage:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    ],
     liveLink: "https://zenthralabs.dev",
   },
 ];

@@ -6,7 +6,7 @@ export const Header = component$(() => {
   const isServices = loc.url.pathname.startsWith("/services");
 
   return (
-    <nav class="w-full h-11 bg-background/95 backdrop-blur-md border-b border-surface-border sticky top-0 z-50">
+    <nav class="w-full h-14 bg-background/95 backdrop-blur-md border-b border-surface-border sticky top-0 z-50">
       <div class="flex justify-between items-center px-4 md:px-margin-desktop max-w-container-max mx-auto h-full gap-4">
         {/* Brand */}
         <a href="/" class="flex items-center gap-2 group shrink-0">
@@ -20,23 +20,23 @@ export const Header = component$(() => {
         </a>
 
         {/* Center Nav */}
-        <div class="flex items-center gap-0.5 bg-surface-container border border-surface-border p-0.5">
+        <div class="flex items-center gap-6">
           <a
             href="/"
-            class={`font-label-mono text-[11px] uppercase px-3 py-1 transition-all duration-150 ${
+            class={`font-label-mono text-xs uppercase tracking-wide transition-colors ${
               !isServices
-                ? "bg-technical-highlight text-black font-bold"
-                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+                ? "text-technical-highlight font-semibold"
+                : "text-on-surface-variant hover:text-on-background"
             }`}
           >
             WORK
           </a>
           <a
             href="/services"
-            class={`font-label-mono text-[11px] uppercase px-3 py-1 transition-all duration-150 ${
+            class={`font-label-mono text-xs uppercase tracking-wide transition-colors ${
               isServices
-                ? "bg-technical-highlight text-black font-bold"
-                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+                ? "text-technical-highlight font-semibold"
+                : "text-on-surface-variant hover:text-on-background"
             }`}
           >
             SERVICES

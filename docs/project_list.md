@@ -14,7 +14,9 @@
 | [4. NexAssist Hub](#4-nexassist-hub--ai-powered-oracle-epm-middleware--assistant) | Enterprise AI & Oracle Middleware | Python (FastAPI), TiDB (MySQL), React 18, Vite, Shadcn UI | Enterprise Tool |
 | [5. After Motion](#5-after-motion--professional-mobile-video-editor--motion-graphics) | Native Mobile Video & Motion Engine | Kotlin Multiplatform, Jetpack Compose, Rust NDK, MediaCodec | **Google Play (>10k+ Downloads)** |
 | [6. Zenthra UI Framework (v2)](#6-zenthra-ui-framework-v2--native-desktop-ecosystem) | High-Performance GPU UI Framework | Rust, WGPU, Winit, Cosmic-Text, Taffy, WGSL Shaders | Core Engine & Desktop Apps |
-| [7. Kairaba Health (NCD Bot)](#7-kairaba-health--multilingual-ai-public-health-assistant) | Multilingual GenAI HealthTech | Gemini 2.5 Flash, React 19, Vite, Recharts, Multimodal | Active AI Studio App |
+| [7. ZenFile](#8-zenfile--native-desktop-file-manager) | Native Desktop File Manager | Rust, Zenthra UI, WGPU, Taffy, LazyContainer | Open Source Native App |
+| [8. Zenthra View](#9-zenthra-view--native-gpu-image-viewer) | Native GPU Image Viewer | Rust, Zenthra UI, WGPU, OpenGL, Filmstrip | Open Source Native App |
+| [9. Kairaba Health (NCD Bot)](#7-kairaba-health--multilingual-ai-public-health-assistant) | Multilingual GenAI HealthTech | Gemini 2.5 Flash, React 19, Vite, Recharts, Multimodal | Active AI Studio App |
 
 ---
 
@@ -432,6 +434,42 @@ Non-Communicable Diseases (hypertension, diabetes, cardiovascular disease) are s
    * Detects acute warning signs (unilateral numbness, severe chest pressure, acute dyspnea, slurred speech).
    * Halts standard conversational flow immediately to issue urgent clinic dispatch warnings directing patients to regional care facilities (e.g. *Edward Francis Small Teaching Hospital*).
    * Strict non-prescriptive medical disclaimers adhering to WHO SDG 3 protocols.
+
+---
+
+## 8. ZenFile — Native Desktop File Manager
+
+* **Website**: [zenthralabs.dev/products/zenthra/apps/file-manager/](https://zenthralabs.dev/products/zenthra/apps/file-manager/)
+* **GitHub Repository**: [github.com/kabirajpan/ZenFile](https://github.com/kabirajpan/ZenFile)
+* **Domain**: Native Systems Desktop Software, High-Performance File Management
+* **Status**: Open Source Desktop Application
+
+### System Overview & Problem Solved
+ZenFile is a dependency-light, native cross-platform desktop file manager engineered in Rust using the Zenthra immediate-mode GUI framework. It replaces bloated Electron file managers with an instantaneous sub-4ms launch sequence and zero runtime virtualization lag, reading directly from the host operating system filesystem.
+
+### Key Architecture & Capabilities
+* **Immediate-Mode UI & 4ms Redraw**: Built on the Zenthra widget tree with Taffy layout algorithms, redrawing file trees, toolbars, and metadata inspectors in under 4ms per frame.
+* **LazyContainer List Virtualization**: Smoothly scrolls and inspects directories with 100,000+ files with zero layout stutter and locked 60 FPS performance.
+* **Inline Live Preview & Metadata**: Right-hand inspection panel surfaces file metadata, dimensions, and live previews without opening external windows.
+* **Native Contextual Actions**: Right-click menus, file operations, multi-color folder labeling, and language-aware syntax icons for source code files.
+
+---
+
+## 9. Zenthra View — Native GPU Image Viewer
+
+* **Website**: [zenthralabs.dev/products/zenthra/apps/zenthra-view/](https://zenthralabs.dev/products/zenthra/apps/zenthra-view/)
+* **GitHub Repository**: [github.com/kabirajpan/Zenthra-Viewer](https://github.com/kabirajpan/Zenthra-Viewer)
+* **Domain**: Native Desktop Graphics & Photography Workflow
+* **Status**: Open Source Desktop Application
+
+### System Overview & Problem Solved
+Zenthra View is a blazing-fast native desktop image viewer built with Rust and WGPU. It provides photographer-grade directory exploration, instant viewport zooming, and virtualized filmstrip scrolling across massive media directories without locking the main thread.
+
+### Key Architecture & Capabilities
+* **GPU Texture Blitting**: Uploads image textures directly to GPU buffers via dedicated WGPU pipelines. Zooming, panning, and rotations are computed entirely in vertex shaders for locked 60 FPS redraws.
+* **Virtualized Filmstrip**: Handles libraries of 100,000+ images with dynamic garbage collection, keeping only active viewport thumbnails cached in VRAM.
+* **Split Sidebar Directory Browser**: Instant directory trees with real-time filesystem watchers (hot reloading) for active shooting directories.
+* **Non-Blocking Metadata Engine**: Background image metadata and color-space parser operating off the main render thread.
 
 ---
 
