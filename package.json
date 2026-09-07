@@ -8,10 +8,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "qwik build",
+    "build": "vite build && vite build -c adapters/static/vite.config.ts",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "qwik check-client src dist && vite build -c adapters/vercel-edge/vite.config.ts",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "vercel deploy",
     "dev": "vite --mode ssr",

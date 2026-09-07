@@ -1,7 +1,13 @@
 import { component$ } from "@builder.io/qwik";
-import { useLocation, type DocumentHead } from "@builder.io/qwik-city";
+import { useLocation, type DocumentHead, type StaticGenerateHandler } from "@builder.io/qwik-city";
 import { LuChevronLeft } from "@qwikest/icons/lucide";
 import { PROJECTS_DATA } from "~/lib/projectsData";
+
+export const onStaticGenerate: StaticGenerateHandler = async () => {
+  return {
+    params: PROJECTS_DATA.map((p) => ({ id: p.id })),
+  };
+};
 
 export default component$(() => {
   const loc = useLocation();
