@@ -10,11 +10,14 @@ export type ProjectCategory =
   | "AI & ML"
   | "FULL-STACK & MOBILE";
 
+export type ProjectType = "mobile" | "web" | "desktop";
+
 export interface Project {
   id: string;
   title: string;
   codename: string;
   category: "SYSTEMS & GPU" | "ENTERPRISE & CLOUD" | "AI & ML" | "FULL-STACK & MOBILE";
+  projectType: ProjectType;
   statusBadge: string;
   statusType: "ready" | "highlight" | "default";
   summary: string;
@@ -34,6 +37,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "After Motion",
     codename: "SYS_APP_AM01",
     category: "SYSTEMS & GPU",
+    projectType: "mobile",
     statusBadge: "GOOGLE PLAY • 10,000+ DOWNLOADS",
     statusType: "ready",
     summary:
@@ -72,6 +76,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "Zenthra UI Framework",
     codename: "SYS_GPU_ZN02",
     category: "SYSTEMS & GPU",
+    projectType: "desktop",
     statusBadge: "GPU ENGINE & APPS",
     statusType: "highlight",
     summary:
@@ -110,6 +115,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "Pratibha Institute ERP",
     codename: "B2B_GOV_PR03",
     category: "ENTERPRISE & CLOUD",
+    projectType: "web",
     statusBadge: "CLIENT PRODUCTION",
     statusType: "ready",
     summary:
@@ -148,6 +154,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "Kairaba Health Assistant",
     codename: "AI_ML_KH04",
     category: "AI & ML",
+    projectType: "mobile",
     statusBadge: "GEMINI 2.5 FLASH • MULTIMODAL",
     statusType: "highlight",
     summary:
@@ -185,6 +192,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "NexAssist Hub",
     codename: "ENT_ORCL_NX05",
     category: "ENTERPRISE & CLOUD",
+    projectType: "web",
     statusBadge: "ENTERPRISE PROXY & AI",
     statusType: "ready",
     summary:
@@ -224,6 +232,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "FilmyWeds Marketplace",
     codename: "WEB_MKT_FW06",
     category: "FULL-STACK & MOBILE",
+    projectType: "web",
     statusBadge: "FULL-STACK MARKETPLACE",
     statusType: "highlight",
     summary:
@@ -263,6 +272,7 @@ export const PROJECTS_DATA: Project[] = [
     title: "ZenthraLabs Cloud Platform",
     codename: "CLD_SAAS_ZL07",
     category: "ENTERPRISE & CLOUD",
+    projectType: "web",
     statusBadge: "LIVE PLATFORM",
     statusType: "ready",
     summary:

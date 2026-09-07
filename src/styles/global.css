@@ -186,3 +186,44 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Masonry / Pinterest-style columns layout */
+.masonry-grid {
+  columns: 1;
+  column-gap: 16px;
+}
+@media (min-width: 640px) {
+  .masonry-grid {
+    columns: 2;
+    column-gap: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry-grid {
+    columns: 3;
+    column-gap: 20px;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .masonry-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* Image aspect ratios by project type */
+.img-portrait {
+  aspect-ratio: 9 / 16;
+}
+.img-landscape {
+  aspect-ratio: 16 / 9;
+}
+.img-desktop {
+  aspect-ratio: 4 / 3;
+}
