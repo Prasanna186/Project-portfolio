@@ -1,112 +1,65 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 
 export const Header = component$(() => {
-  const isMobileMenuOpen = useSignal(false);
-
-  const toggleMobileMenu = $(() => {
-    isMobileMenuOpen.value = !isMobileMenuOpen.value;
-  });
+  const loc = useLocation();
+  const isServices = loc.url.pathname.startsWith("/services");
 
   return (
-    <nav class="w-full h-20 bg-background border-b-2 border-outline-variant sticky top-0 z-50">
-      <div class="flex justify-between items-center px-4 md:px-margin-desktop max-w-container-max mx-auto h-full">
+    <nav class="w-full h-11 bg-background/95 backdrop-blur-md border-b border-surface-border sticky top-0 z-50">
+      <div class="flex justify-between items-center px-4 md:px-margin-desktop max-w-container-max mx-auto h-full gap-4">
         {/* Brand */}
-        <a
-          href="/"
-          class="font-headline-md text-headline-md font-bold text-on-background tracking-tighter"
-        >
-          STUDIO_ARCH
+        <a href="/" class="flex items-center gap-2 group shrink-0">
+          <span class="w-2 h-2 bg-technical-highlight shadow-[0_0_6px_#FF6B00] group-hover:scale-110 transition-transform inline-block"></span>
+          <span class="font-headline-md text-sm font-bold text-on-background tracking-tight group-hover:text-technical-highlight transition-colors">
+            STUDIO_ARCH
+          </span>
+          <span class="hidden md:inline-block font-label-mono text-[9px] text-on-surface-variant bg-surface-container border border-surface-border px-1.5 py-0.5 ml-0.5">
+            v2.6
+          </span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <div class="hidden md:flex gap-8 items-center">
+        {/* Center Nav */}
+        <div class="flex items-center gap-0.5 bg-surface-container border border-surface-border p-0.5">
           <a
-            class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors hover:bg-technical-highlight hover:text-surface transition-all duration-200 px-2 py-1"
-            href="#services"
-          >
-            SERVICES
-          </a>
-          <a
-            class="font-label-mono text-label-mono text-technical-highlight border-b-2 border-technical-highlight pb-1 active:translate-x-1 active:translate-y-1"
-            href="#work"
+            href="/"
+            class={`font-label-mono text-[11px] uppercase px-3 py-1 transition-all duration-150 ${
+              !isServices
+                ? "bg-technical-highlight text-black font-bold"
+                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+            }`}
           >
             WORK
           </a>
           <a
-            class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors hover:bg-technical-highlight hover:text-surface transition-all duration-200 px-2 py-1"
-            href="#process"
+            href="/services"
+            class={`font-label-mono text-[11px] uppercase px-3 py-1 transition-all duration-150 ${
+              isServices
+                ? "bg-technical-highlight text-black font-bold"
+                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+            }`}
           >
-            PROCESS
+            SERVICES
           </a>
+        </div>
+
+        {/* Right Actions */}
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="hidden sm:flex items-center gap-1.5 font-label-mono text-[10px] text-status-ready">
+            <span class="w-1.5 h-1.5 bg-status-ready animate-pulse inline-block"></span>
+            <span>ONLINE</span>
+          </div>
+
           <a
-            class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors hover:bg-technical-highlight hover:text-surface transition-all duration-200 px-2 py-1"
-            href="#about"
+            href="mailto:contact@zenthralabs.dev"
+            class="font-button text-[11px] uppercase px-3 py-1.5 bg-status-ready text-black font-bold btn-hover hard-shadow border border-transparent cursor-pointer inline-flex items-center gap-1"
           >
-            ABOUT
+            <span class="hidden sm:inline">LET'S BUILD</span>
+            <span class="sm:hidden">BUILD</span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </a>
-        </div>
-
-        {/* CTA Button */}
-        <div class="hidden md:block">
-          <button class="bg-status-ready text-surface font-button text-button px-6 py-2 hover:bg-background hover:text-status-ready border-2 border-status-ready transition-all duration-200 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 cursor-pointer">
-            LET'S BUILD
-          </button>
-        </div>
-
-        {/* Mobile Hamburger Toggle */}
-        <div class="flex md:hidden">
-          <button
-            type="button"
-            aria-label="Toggle navigation menu"
-            onClick$={toggleMobileMenu}
-            class="font-label-mono text-label-mono border border-outline-variant px-3 py-1.5 text-on-surface hover:bg-surface-container"
-          >
-            {isMobileMenuOpen.value ? "[ CLOSE ]" : "[ MENU ]"}
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen.value && (
-        <div class="md:hidden bg-background border-b-2 border-outline-variant px-4 py-6 space-y-4">
-          <a
-            class="block font-label-mono text-label-mono text-on-surface-variant hover:text-technical-highlight"
-            href="#services"
-            onClick$={toggleMobileMenu}
-          >
-            &gt; SERVICES
-          </a>
-          <a
-            class="block font-label-mono text-label-mono text-technical-highlight"
-            href="#work"
-            onClick$={toggleMobileMenu}
-          >
-            &gt; WORK
-          </a>
-          <a
-            class="block font-label-mono text-label-mono text-on-surface-variant hover:text-technical-highlight"
-            href="#process"
-            onClick$={toggleMobileMenu}
-          >
-            &gt; PROCESS
-          </a>
-          <a
-            class="block font-label-mono text-label-mono text-on-surface-variant hover:text-technical-highlight"
-            href="#about"
-            onClick$={toggleMobileMenu}
-          >
-            &gt; ABOUT
-          </a>
-          <div class="pt-2">
-            <button
-              class="w-full bg-status-ready text-surface font-button text-button py-2 border-2 border-status-ready"
-              onClick$={toggleMobileMenu}
-            >
-              LET'S BUILD
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 });

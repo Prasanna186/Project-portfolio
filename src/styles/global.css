@@ -61,7 +61,7 @@
   --font-display-lg-mobile: "Hanken Grotesk", sans-serif;
 
   --spacing-margin-mobile: 16px;
-  --spacing-margin-desktop: 64px;
+  --spacing-margin-desktop: 48px;
   --spacing-container-max: 1440px;
   --spacing-gutter: 24px;
   --spacing-unit: 4px;
@@ -83,13 +83,13 @@
 
   /* Custom industrial scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #131313;
+    background: #0e0e0e;
   }
   ::-webkit-scrollbar-thumb {
-    background: #262626;
+    background: #2a2a2a;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #FF6B00;
@@ -135,70 +135,54 @@
   font-weight: 700;
 }
 
-/* Studio Arch Work Grid system */
-.work-grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
-}
-@media (max-width: 1024px) {
-  .work-grid-container {
-    grid-template-columns: repeat(8, 1fr);
-    gap: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .work-grid-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
+/* Background grid utility */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(68, 71, 72, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(68, 71, 72, 0.08) 1px, transparent 1px);
 }
 
-.work-item {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #262626;
-  background-color: #1A1A1A;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Button micro-interactions */
+.btn-hover {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-hover:hover {
+  transform: translate(2px, 2px);
+  box-shadow: -2px -2px 0px 0px #FF6B00;
+}
+.btn-hover:active {
+  transform: translate(0px, 0px);
+  box-shadow: none;
 }
 
-.work-item:hover {
-  transform: translate(4px, 4px);
-  box-shadow: -4px -4px 0px 0px #FF6B00;
+/* Hard shadows - orange accent (not black) */
+.hard-shadow {
+  box-shadow: 2px 2px 0px 0px #FF6B00;
 }
 
-.work-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(13, 13, 13, 0.95);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-  border-top: 2px solid #FF6B00;
+.hard-shadow-green {
+  box-shadow: 2px 2px 0px 0px #00FF41;
 }
 
-.work-item:hover .work-overlay {
-  opacity: 1;
+.hard-shadow-rim {
+  box-shadow: 2px 2px 0px 0px rgba(255, 107, 0, 0.3);
 }
 
-/* Span configurations for asymmetric grid */
-.col-span-12 { grid-column: span 12; }
-.col-span-8 { grid-column: span 8; }
-.col-span-6 { grid-column: span 6; }
-.col-span-4 { grid-column: span 4; }
-.col-span-3 { grid-column: span 3; }
-
-@media (max-width: 1024px) {
-  .col-span-8 { grid-column: span 8; }
-  .col-span-6 { grid-column: span 8; }
-  .col-span-4 { grid-column: span 4; }
+/* Card hover shadow using orange accent */
+.card-hover {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.card-hover:hover {
+  border-color: #3a3a3a;
+  box-shadow: 0 0 0 1px rgba(255, 107, 0, 0.1), inset 0 0 30px rgba(255, 107, 0, 0.03);
 }
 
-@media (max-width: 768px) {
-  .col-span-12, .col-span-8, .col-span-6, .col-span-4, .col-span-3 {
-    grid-column: span 4;
-  }
+/* Clean scrollbar suppression for mobile horizontal tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
