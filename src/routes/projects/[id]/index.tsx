@@ -21,12 +21,8 @@ export default component$(() => {
     );
   }
 
-  const imgClass =
-    project.projectType === "mobile"
-      ? "img-portrait"
-      : project.projectType === "desktop"
-      ? "img-desktop"
-      : "img-landscape";
+  // Two ratios: mobile = square, web/desktop = landscape
+  const imgClass = project.projectType === "mobile" ? "img-square" : "img-landscape";
 
   return (
     <div class="w-full min-h-screen grid-bg">
@@ -188,12 +184,7 @@ export default component$(() => {
 
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
             {PROJECTS_DATA.filter((p) => p.id !== project.id).slice(0, 4).map((p) => {
-              const thumbClass =
-                p.projectType === "mobile"
-                  ? "img-portrait"
-                  : p.projectType === "desktop"
-                  ? "img-desktop"
-                  : "img-landscape";
+              const thumbClass = p.projectType === "mobile" ? "img-square" : "img-landscape";
               return (
                 <a
                   key={p.id}

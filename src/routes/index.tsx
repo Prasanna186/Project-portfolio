@@ -90,12 +90,8 @@ export default component$(() => {
         {/* Masonry Grid — minimal cards */}
         <section class="masonry-grid">
           {filteredProjects.map((project: Project) => {
-            const imgClass =
-              project.projectType === "mobile"
-                ? "img-portrait"
-                : project.projectType === "desktop"
-                ? "img-desktop"
-                : "img-landscape";
+            // Two ratios: mobile = square, web/desktop = landscape
+            const imgClass = project.projectType === "mobile" ? "img-square" : "img-landscape";
 
             return (
               <a

@@ -217,13 +217,10 @@
   }
 }
 
-/* Image aspect ratios by project type */
-.img-portrait {
-  aspect-ratio: 9 / 16;
+/* Image aspect ratios — two only */
+.img-square {
+  aspect-ratio: 1 / 1;
 }
 .img-landscape {
   aspect-ratio: 16 / 9;
-}
-.img-desktop {
-  aspect-ratio: 4 / 3;
 }
