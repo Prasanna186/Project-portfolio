@@ -86,8 +86,8 @@ export default component$(() => {
           </div>
         </section>
 
-        {/* Masonry Grid — shutter reveal */}
-        <section class="masonry-grid animate-shutter-up">
+        {/* Masonry Grid — minimal cards */}
+        <section class="masonry-grid">
           {filteredProjects.map((project: Project) => {
             // Two ratios: mobile = square, web/desktop = landscape
             const imgClass = project.projectType === "mobile" ? "img-square" : "img-landscape";
@@ -140,10 +140,28 @@ export default component$(() => {
           })}
         </section>
 
-        {/* Tagline below masonry */}
-        <p class="font-label-mono text-xs sm:text-sm text-on-surface-variant text-center max-w-2xl mx-auto leading-relaxed animate-fade-up">
-          Whether you require a native graphics engine, an enterprise ERP with zero phantom data drift, or a custom multimodal AI agent — we deliver engineered precision.
-        </p>
+        {/* CTA */}
+        <section class="border-t border-surface-border pt-8 sm:pt-10 flex flex-col items-center gap-3 text-center">
+          <div class="flex items-center gap-1.5 text-technical-highlight font-label-mono text-[10px] uppercase tracking-widest">
+            <span class="material-symbols-outlined text-xs">handshake</span>
+            <span>/initiate/direct_engagement</span>
+          </div>
+          <h2 class="font-headline-md text-xl sm:text-2xl md:text-3xl font-bold text-on-background uppercase tracking-tight">
+            READY TO INITIATE A PROJECT?
+          </h2>
+          <p class="font-label-mono text-[11px] sm:text-xs text-on-surface-variant max-w-xl leading-relaxed">
+            Whether you require a native graphics engine, an enterprise ERP with zero phantom data drift, or a custom multimodal AI agent — we deliver engineered precision.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 pt-1">
+            <a
+              href="/services"
+              class="font-button text-xs uppercase bg-status-ready text-black px-5 py-2.5 btn-hover hard-shadow border border-transparent font-bold inline-flex items-center gap-1.5"
+            >
+              <span>EXPLORE SERVICES & SLA</span>
+              <span class="material-symbols-outlined text-xs">arrow_forward</span>
+            </a>
+          </div>
+        </section>
       </main>
     </div>
   );
