@@ -11,8 +11,9 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "qwik check-client src dist && vite build -c adapters/vercel-edge/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "deploy": "vercel deploy",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -28,6 +29,7 @@
     "@eslint/js": "^9",
     "@qwikest/icons": "^0.0.13",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/bun": "latest",
     "@types/node": "20.19.0",
     "autoprefixer": "^10.5.4",
     "eslint": "9.32.0",
@@ -40,9 +42,9 @@
     "typescript-eslint": "8.38.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "*",
+    "vercel": "^29.1.1",
     "vite": "7.3.1",
-    "vite-tsconfig-paths": "^4.2.1",
-    "@types/bun": "latest"
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
     "clsx": "^2.1.1",
