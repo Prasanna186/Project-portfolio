@@ -13,15 +13,11 @@ export const Footer = component$(() => {
 
         {/* Left — CTA */}
         <div class="flex flex-col gap-3">
-          <div class="flex items-center gap-1.5 text-technical-highlight font-label-mono text-[10px] uppercase tracking-widest">
-            <span class="material-symbols-outlined text-xs">handshake</span>
-            <span>/initiate/direct_engagement</span>
-          </div>
           <h2 class="font-headline-md text-xl sm:text-2xl md:text-3xl font-bold text-on-background uppercase tracking-tight">
             READY TO INITIATE A PROJECT?
           </h2>
-          <p class="font-label-mono text-[11px] sm:text-xs text-on-surface-variant max-w-sm leading-relaxed">
-            Available for select engineering contracts, systems architecture, and technical consulting. Let's talk about what you're building.
+          <p class="font-label-mono text-xs sm:text-sm text-on-surface-variant max-w-sm leading-relaxed">
+            Ready to build, scale, or improve your product? We are available for select contracts and technical consulting. Let's discuss what you need.
           </p>
           <div class="pt-0.5">
             <a

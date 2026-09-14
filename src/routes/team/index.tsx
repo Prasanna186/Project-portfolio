@@ -42,16 +42,12 @@ export default component$(() => {
 
         {/* Header */}
         <header class="border-b border-surface-border pb-5 sm:pb-7 flex flex-col gap-3">
-          <div class="flex items-center gap-2 text-technical-highlight font-label-mono text-[10px] uppercase tracking-widest">
-            <span class="material-symbols-outlined text-sm">group</span>
-            <span>/studio_arch/team</span>
-          </div>
           <h1 class="font-headline-md text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-background uppercase tracking-tight leading-[1.1]">
             THE PEOPLE<br />
             <span class="text-technical-highlight">BEHIND THE SYSTEMS.</span>
           </h1>
-          <p class="font-label-mono text-[11px] sm:text-xs text-on-surface-variant max-w-2xl leading-relaxed">
-            A small, precise team of engineers who build verified production systems. No bloat. No filler. Just craft.
+          <p class="font-label-mono text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+            A dedicated engineering team building clean, reliable, and high-impact digital products. Direct communication, fast delivery, and no agency overhead.
           </p>
         </header>
 

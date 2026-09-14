@@ -27,11 +27,7 @@ export default component$(() => {
 
         {/* Hero */}
         <header class="border-b border-surface-border pb-5 sm:pb-7 flex flex-col gap-3 sm:gap-4">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-2 text-technical-highlight font-label-mono text-[10px] uppercase tracking-widest">
-              <span class="material-symbols-outlined text-sm">terminal</span>
-              <span>/portfolio/verified_production_systems</span>
-            </div>
+          <div class="flex items-center justify-start">
             <div class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-surface-container border border-status-ready/20 text-status-ready font-label-mono text-[10px] uppercase">
               <span class="w-1.5 h-1.5 bg-status-ready animate-pulse inline-block"></span>
               <span>AVAILABLE FOR SELECT CONTRACTS</span>
@@ -39,21 +35,21 @@ export default component$(() => {
           </div>
 
           <h1 class="font-headline-md text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-background uppercase tracking-tight leading-[1.1]">
-            ENGINEERED SYSTEMS.<br />
-            <span class="text-technical-highlight">PRECISION AT SCALE.</span>
+            MODERN SOFTWARE PRODUCTS.<br />
+            <span class="text-technical-highlight">BUILT TO SCALE.</span>
           </h1>
 
-          <p class="font-label-mono text-[11px] sm:text-xs text-on-surface-variant max-w-2xl leading-relaxed">
-            Verified production systems across native graphics engines, enterprise Oracle middleware, applied multimodal GenAI, and consumer applications with 10,000+ active downloads.
+          <p class="font-label-mono text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+            We design and build high-performance web applications, intelligent AI tools, and reliable software products — proven in production with over 10,000 active users and trusted enterprise systems.
           </p>
 
           {/* Metrics */}
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
             {[
-              { label: "STORE TRACTION", value: ">10,000+ DL", color: "text-status-ready" },
-              { label: "NATIVE GPU / NDK", value: "60 FPS WGPU", color: "text-technical-highlight" },
-              { label: "ENTERPRISE DRIFT", value: "0 Ghost Records", color: "text-on-background" },
-              { label: "APPLIED GENAI", value: "Multimodal 2.5", color: "text-status-ready" },
+              { label: "PROVEN REACH", value: "10,000+ Users", color: "text-status-ready" },
+              { label: "PERFORMANCE", value: "Ultra-Fast 60 FPS", color: "text-technical-highlight" },
+              { label: "RELIABILITY", value: "100% Uptime", color: "text-on-background" },
+              { label: "AI INTEGRATION", value: "Custom GenAI", color: "text-status-ready" },
             ].map((m) => (
               <div key={m.label} class="bg-surface-container-high/60 border border-surface-border p-2.5 flex flex-col gap-0.5">
                 <span class="font-label-mono text-[9px] text-on-surface-variant uppercase tracking-wide">{m.label}</span>
@@ -66,7 +62,7 @@ export default component$(() => {
         {/* Filter */}
         <section class="flex flex-col gap-2">
           <span class="font-label-mono text-[10px] uppercase text-on-surface-variant tracking-widest">
-            FILTER / DOMAIN [{filteredProjects.length} OF {PROJECTS_DATA.length}]
+            FILTER BY CATEGORY [{filteredProjects.length} OF {PROJECTS_DATA.length}]
           </span>
           <div class="flex items-center overflow-x-auto no-scrollbar gap-1.5 pb-0.5 sm:flex-wrap">
             {categories.map((cat) => (

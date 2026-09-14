@@ -97,10 +97,10 @@ export const Header = component$(() => {
           ></div>
 
           {/* Left Drawer */}
-          <div class="fixed top-0 left-0 bottom-0 w-[270px] max-w-[80vw] bg-surface-container-lowest border-r border-surface-border p-5 flex flex-col justify-between shadow-2xl z-10">
-            <div class="flex flex-col gap-6">
+          <div class="fixed top-0 left-0 bottom-0 w-[270px] max-w-[80vw] bg-surface-container-lowest border-r border-surface-border flex flex-col justify-between shadow-2xl z-10">
+            <div class="flex flex-col">
               {/* Drawer Header with Brand & Close Button */}
-              <div class="flex items-center justify-between border-b border-surface-border pb-4">
+              <div class="flex items-center justify-between border-b border-surface-border px-5 py-4">
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 bg-technical-highlight shadow-[0_0_6px_#FF6B00] inline-block"></span>
                   <span class="font-headline-md text-sm font-bold text-on-background tracking-tight">
@@ -110,25 +110,22 @@ export const Header = component$(() => {
                 <button
                   type="button"
                   onClick$={() => (isMenuOpen.value = false)}
-                  class="w-7 h-7 flex items-center justify-center border border-surface-border bg-surface-container text-on-surface-variant hover:text-technical-highlight hover:border-technical-highlight transition-colors rounded-[4px] cursor-pointer"
+                  class="w-7 h-7 flex items-center justify-center border border-surface-border bg-surface-container text-on-surface-variant hover:text-technical-highlight hover:border-technical-highlight transition-colors rounded-none cursor-pointer"
                   aria-label="Close navigation menu"
                 >
                   <span class="material-symbols-outlined text-base">close</span>
                 </button>
               </div>
 
-              {/* Navigation Links */}
-              <div class="flex flex-col gap-1.5">
-                <div class="font-label-mono text-[9px] text-technical-highlight uppercase tracking-widest px-2 py-0.5">
-                  /navigation
-                </div>
+              {/* Navigation Links - Full Width & Radius 0 */}
+              <div class="flex flex-col w-full py-2">
                 <a
                   href="/"
                   onClick$={() => (isMenuOpen.value = false)}
-                  class={`font-label-mono text-xs uppercase tracking-wider py-2.5 px-3 rounded-[4px] border transition-colors flex items-center justify-between ${
+                  class={`w-full font-label-mono text-xs uppercase tracking-wider py-3 px-5 rounded-none border-y transition-colors flex items-center justify-between ${
                     isWork
-                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold"
-                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/50"
+                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold border-l-2 border-l-technical-highlight"
+                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/40"
                   }`}
                 >
                   <span>WORK</span>
@@ -137,10 +134,10 @@ export const Header = component$(() => {
                 <a
                   href="/services"
                   onClick$={() => (isMenuOpen.value = false)}
-                  class={`font-label-mono text-xs uppercase tracking-wider py-2.5 px-3 rounded-[4px] border transition-colors flex items-center justify-between ${
+                  class={`w-full font-label-mono text-xs uppercase tracking-wider py-3 px-5 rounded-none border-y transition-colors flex items-center justify-between ${
                     isServices
-                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold"
-                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/50"
+                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold border-l-2 border-l-technical-highlight"
+                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/40"
                   }`}
                 >
                   <span>SERVICES</span>
@@ -149,10 +146,10 @@ export const Header = component$(() => {
                 <a
                   href="/team"
                   onClick$={() => (isMenuOpen.value = false)}
-                  class={`font-label-mono text-xs uppercase tracking-wider py-2.5 px-3 rounded-[4px] border transition-colors flex items-center justify-between ${
+                  class={`w-full font-label-mono text-xs uppercase tracking-wider py-3 px-5 rounded-none border-y transition-colors flex items-center justify-between ${
                     isTeam
-                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold"
-                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/50"
+                      ? "text-technical-highlight bg-surface-container border-surface-border font-bold border-l-2 border-l-technical-highlight"
+                      : "text-on-surface-variant border-transparent hover:text-on-background hover:bg-surface-container/40"
                   }`}
                 >
                   <span>TEAM</span>
@@ -162,16 +159,14 @@ export const Header = component$(() => {
             </div>
 
             {/* Drawer Footer */}
-            <div class="border-t border-surface-border pt-4 flex flex-col gap-3">
-              <div class="flex items-center justify-between px-1">
-                <div class="flex items-center gap-1.5 font-label-mono text-[10px] text-status-ready">
-                  <span class="w-1.5 h-1.5 bg-status-ready animate-pulse inline-block"></span>
-                  <span>SYSTEMS ONLINE</span>
-                </div>
-                <span class="font-label-mono text-[9px] text-on-surface-variant bg-surface-container border border-surface-border px-1.5 py-0.5">
-                  v2.6
-                </span>
+            <div class="border-t border-surface-border px-5 py-4 flex items-center justify-between">
+              <div class="flex items-center gap-1.5 font-label-mono text-[10px] text-status-ready">
+                <span class="w-1.5 h-1.5 bg-status-ready animate-pulse inline-block"></span>
+                <span>SYSTEMS ONLINE</span>
               </div>
+              <span class="font-label-mono text-[9px] text-on-surface-variant bg-surface-container border border-surface-border px-1.5 py-0.5">
+                v2.6
+              </span>
             </div>
           </div>
         </div>
