@@ -58,7 +58,7 @@ export default component$(() => {
         {/* Team Grid */}
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TEAM.map((member) => (
-            <div key={member.handle} class="bg-surface-container/60 border border-surface-border rounded-[6px] flex flex-col justify-between gap-3 p-4 hover:border-technical-highlight/50 transition-colors">
+            <div key={member.handle} class="bg-surface-container/60 border border-surface-border rounded-[4px] flex flex-col justify-between gap-3 p-4 hover:border-technical-highlight/50 transition-colors">
 
               <div class="flex flex-col gap-3">
                 {/* Top row */}
