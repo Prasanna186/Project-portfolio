@@ -23,7 +23,7 @@ export default component$(() => {
 
   return (
     <div class="w-full min-h-screen grid-bg">
-      <main class="w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-6 sm:py-10 md:py-12 flex flex-col gap-6 sm:gap-10">
+      <main class="w-full max-w-container-max mx-auto px-2.5 sm:px-4 md:px-margin-desktop py-6 sm:py-10 md:py-12 flex flex-col gap-6 sm:gap-10">
 
         {/* Hero */}
         <header class="border-b border-surface-border pb-5 sm:pb-7 flex flex-col gap-3 sm:gap-4">
@@ -86,38 +86,35 @@ export default component$(() => {
           </div>
         </section>
 
-        {/* Masonry Grid — minimal cards */}
-        <section class="masonry-grid">
+        {/* Native Grid */}
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
           {filteredProjects.map((project: Project) => {
-            // Two ratios: mobile = square, web/desktop = landscape
-            const imgClass = project.projectType === "mobile" ? "img-square" : "img-landscape";
-
             return (
               <a
                 key={project.id}
                 href={`/projects/${project.id}`}
-                class="masonry-item block bg-surface-container-high/50 border border-surface-border group hover:border-outline-variant transition-all duration-200 relative overflow-hidden card-hover"
+                class="group flex flex-col gap-2 transition-all duration-200"
               >
-                {/* Image */}
-                <div class={`w-full relative bg-surface overflow-hidden ${imgClass}`}>
+                {/* Image Container */}
+                <div class="w-full relative bg-surface overflow-hidden aspect-video border border-surface-border group-hover:border-technical-highlight/60 transition-colors">
                   <div
-                    class="absolute inset-0 bg-cover bg-center"
+                    class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                     style={`background-image: url('${project.placeholderImage}')`}
                   ></div>
 
-                  {/* Overlay — badges only */}
-                  <div class="absolute inset-0 flex flex-col justify-between p-2">
+                  {/* Overlay Badges */}
+                  <div class="absolute inset-0 flex flex-col justify-between p-2 pointer-events-none">
                     <div class="flex justify-between items-start gap-1">
                       {/* Type badge */}
-                      <span class="font-label-mono text-xs uppercase px-2 py-0.5 bg-background border border-surface-border text-technical-highlight font-bold leading-tight shrink-0">
+                      <span class="font-label-mono text-xs uppercase px-2 py-0.5 bg-background/95 border border-surface-border text-technical-highlight font-bold leading-tight shrink-0">
                         {project.projectType === "mobile" ? "MOBILE" : project.projectType === "desktop" ? "DESKTOP" : "WEB"}
                       </span>
                       {/* Status badge */}
                       <span
                         class={`font-label-mono text-[11px] px-1.5 py-0.5 border uppercase font-bold leading-tight text-right ${
                           project.statusType === "ready"
-                            ? "bg-background text-status-ready border-status-ready/50"
-                            : "bg-background text-technical-highlight border-technical-highlight/50"
+                            ? "bg-background/95 text-status-ready border-status-ready/50"
+                            : "bg-background/95 text-technical-highlight border-technical-highlight/50"
                         }`}
                       >
                         {project.statusBadge}
@@ -126,8 +123,8 @@ export default component$(() => {
                   </div>
                 </div>
 
-                {/* Minimal info strip */}
-                <div class="px-3 py-2.5 flex flex-col gap-0.5">
+                {/* Unboxed Metadata */}
+                <div class="flex flex-col gap-0.5 pt-0.5">
                   <h2 class="font-headline-md text-base sm:text-lg font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
                     {project.title}
                   </h2>

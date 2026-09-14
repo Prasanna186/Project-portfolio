@@ -7,7 +7,7 @@ export const Header = component$(() => {
 
   return (
     <nav class="w-full h-14 bg-background/95 backdrop-blur-md border-b border-surface-border sticky top-0 z-50">
-      <div class="flex justify-between items-center px-4 md:px-margin-desktop max-w-container-max mx-auto h-full gap-4">
+      <div class="flex justify-between items-center px-2.5 sm:px-4 md:px-margin-desktop max-w-container-max mx-auto h-full gap-4">
         {/* Brand */}
         <a href="/" class="flex items-center gap-2 group shrink-0">
           <span class="w-2 h-2 bg-technical-highlight shadow-[0_0_6px_#FF6B00] group-hover:scale-110 transition-transform inline-block"></span>

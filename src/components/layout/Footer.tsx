@@ -9,7 +9,7 @@ const socialLinks = [
 
 export const Footer = component$(() => {
   return (
-    <div class="w-full bg-background border-t border-surface-border px-4 md:px-margin-desktop py-8 sm:py-10">
+    <div class="w-full bg-background border-t border-surface-border px-2.5 sm:px-4 md:px-margin-desktop py-8 sm:py-10">
       <div class="max-w-container-max mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
 
         {/* Left — CTA */}

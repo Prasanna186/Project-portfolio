@@ -229,11 +229,14 @@ export const PROJECTS_DATA: Project[] = [
       "Automated tuition fee ledger computation and receipt generation",
       "Role-based access control with Argon2 / JWT authentication",
     ],
-    placeholderImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    placeholderImage: "/assets/projects/pratibha-erp/pratibha-erp-financial-ledger-dashboard.png",
     galleryImages: [
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "/assets/projects/pratibha-erp/pratibha-erp-excel-data-center-diff-engine.png",
+      "/assets/projects/pratibha-erp/pratibha-erp-tuition-fees-ledger.png",
+      "/assets/projects/pratibha-erp/pratibha-erp-record-payment-modal.png",
+      "/assets/projects/pratibha-erp/pratibha-erp-student-registration-wizard.png",
+      "/assets/projects/pratibha-erp/pratibha-erp-staff-accounts-rbac.png",
+      "/assets/projects/pratibha-erp/pratibha-erp-broadcast-announcements.png",
     ],
     liveLink: "https://frontend-pratibha-inst.vercel.app/login",
   },
@@ -241,7 +244,7 @@ export const PROJECTS_DATA: Project[] = [
     id: "kairaba-health",
     title: "Kairaba Health Assistant",
     category: "AI & ML",
-    projectType: "mobile",
+    projectType: "web",
     statusBadge: "GEMINI 2.5 FLASH • MULTIMODAL",
     statusType: "highlight",
     summary:
@@ -270,11 +273,14 @@ export const PROJECTS_DATA: Project[] = [
       "Multilingual cardiovascular risk scoring engine with dialect keyword parsing",
       "Emergency red-flag escalation to regional hospital triage centers",
     ],
-    placeholderImage:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    placeholderImage: "/assets/projects/kairaba-health/kairaba-welcome-portal.jpg",
     galleryImages: [
-      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80",
+      "/assets/projects/kairaba-health/kairaba-ai-chat-consultation.jpg",
+      "/assets/projects/kairaba-health/kairaba-vitals-trends-dashboard.jpg",
+      "/assets/projects/kairaba-health/kairaba-ncd-risk-assessment.jpg",
+      "/assets/projects/kairaba-health/kairaba-lifestyle-checkup-results.jpg",
+      "/assets/projects/kairaba-health/kairaba-multilingual-emergency-triage.jpg",
+      "/assets/projects/kairaba-health/kairaba-cultural-health-tips.jpg",
     ],
   },
   {
