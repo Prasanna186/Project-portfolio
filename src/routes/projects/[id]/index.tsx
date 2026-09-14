@@ -39,20 +39,22 @@ export default component$(() => {
 
         {/* Banner Image at top */}
         {project.placeholderImage && (
-          <div class="w-full border border-surface-border overflow-hidden bg-surface">
+          <div class="relative w-full overflow-hidden">
             <img
               src={project.placeholderImage}
               alt={`${project.title} Banner`}
               width={1200}
               height={650}
-              class="w-full h-[360px] sm:h-[480px] md:h-[580px] lg:h-[650px] object-cover block"
+              class="w-full h-auto block"
               loading="eager"
             />
+            {/* Gradient fade at bottom */}
+            <div class="absolute bottom-0 left-0 right-0 h-64 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, #131313 85%);"></div>
           </div>
         )}
 
         {/* Main 2-Column Layout: Sticky Left Sidebar & Right Content / Gallery */}
-        <div class="flex flex-col lg:grid lg:grid-cols-[32%_68%] gap-8 lg:gap-10 w-full items-start">
+        <div class="flex flex-col lg:grid lg:grid-cols-[32%_68%] gap-8 lg:gap-10 w-full items-start -mt-16 relative z-10">
 
           {/* Left Sidebar — Sticky on desktop */}
           <div class="lg:sticky lg:top-20 z-10 w-full h-fit mb-6 lg:mb-0 flex flex-col gap-4">

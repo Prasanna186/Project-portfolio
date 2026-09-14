@@ -86,20 +86,21 @@ export default component$(() => {
           </div>
         </section>
 
-        {/* Native Grid */}
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
+        {/* Masonry Grid */}
+        <section class="columns-1 sm:columns-2 lg:columns-3 gap-2.5 sm:gap-3 [column-fill:_balance]">
           {filteredProjects.map((project: Project) => {
+            const isMobile = project.projectType === "mobile";
             return (
               <a
                 key={project.id}
                 href={`/projects/${project.id}`}
-                class="group flex flex-col gap-2 transition-all duration-200"
+                class="break-inside-avoid mb-2.5 sm:mb-3 inline-block w-full group"
               >
-                {/* Image Container */}
-                <div class="w-full relative bg-surface overflow-hidden aspect-video border border-surface-border group-hover:border-technical-highlight/60 transition-colors">
+                {/* Image Container — portrait for mobile, landscape for web/desktop */}
+                <div class={`w-full relative overflow-hidden border border-surface-border group-hover:border-technical-highlight/60 transition-colors ${isMobile ? "aspect-square" : "aspect-video bg-surface"}`} style={isMobile ? "background: #4a6080;" : ""}>
                   <div
-                    class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                    style={`background-image: url('${project.placeholderImage}')`}
+                    class="absolute inset-0 bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105"
+                    style={`background-image: url('${project.placeholderImage}'); background-size: ${isMobile ? "auto 100%" : "cover"};`}
                   ></div>
 
                   {/* Overlay Badges */}
@@ -124,7 +125,7 @@ export default component$(() => {
                 </div>
 
                 {/* Unboxed Metadata */}
-                <div class="flex flex-col gap-0.5 pt-0.5">
+                <div class="flex flex-col gap-0.5 pt-1.5 pb-0.5">
                   <h2 class="font-headline-md text-base sm:text-lg font-bold text-on-background group-hover:text-technical-highlight transition-colors leading-tight truncate">
                     {project.title}
                   </h2>
@@ -136,6 +137,7 @@ export default component$(() => {
             );
           })}
         </section>
+
       </main>
     </div>
   );

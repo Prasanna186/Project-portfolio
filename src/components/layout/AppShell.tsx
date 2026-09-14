@@ -29,7 +29,7 @@ export const AppShell = component$<AppShellProps>(({
 
       {/* Main content — z-10 with solid bg, acts as the shutter.
           mb matches footer height so footer is fully revealed on scroll-end */}
-      <main class="relative z-10 bg-background mb-[28rem] sm:mb-[22rem] md:mb-[20rem]">
+      <main class="relative z-10 bg-background mb-[22rem] sm:mb-[19rem] md:mb-[17rem] border-b border-surface-border">
         <Slot />
       </main>
     </div>

@@ -2,14 +2,13 @@ import { component$ } from "@builder.io/qwik";
 
 const socialLinks = [
   { label: "GitHub", url: "https://github.com/Prasanna186" },
-  { label: "LinkedIn", url: "https://linkedin.com" },
-  { label: "Twitter", url: "https://twitter.com" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/kabirajpan/" },
   { label: "Instagram", url: "https://instagram.com" },
 ];
 
 export const Footer = component$(() => {
   return (
-    <div class="w-full bg-background border-t border-surface-border px-2.5 sm:px-4 md:px-margin-desktop py-8 sm:py-10">
+    <div class="w-full min-h-screen flex flex-col justify-end bg-background border-t border-surface-border px-2.5 sm:px-4 md:px-margin-desktop py-8 sm:py-10" style="background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px); background-size: 20px 20px;">
       <div class="max-w-container-max mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
 
         {/* Left — CTA */}
@@ -62,12 +61,23 @@ export const Footer = component$(() => {
             </span>
             <p>
               <a
-                href="mailto:contact@zenthralabs.dev"
+                href="mailto:Prasannasri.official@gmail.com"
                 class="font-label-mono text-sm text-on-background border-b border-dotted border-on-surface-variant hover:text-technical-highlight hover:border-technical-highlight transition-colors break-all"
               >
-                contact@zenthralabs.dev
+                Prasannasri.official@gmail.com
               </a>
               <sup class="text-technical-highlight text-[10px] pl-0.5">5</sup>
+            </p>
+            <p>
+              <a
+                href="https://www.linkedin.com/in/gnana-prasanna-kundurthi-b7285b268/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-label-mono text-sm text-on-background border-b border-dotted border-on-surface-variant hover:text-technical-highlight hover:border-technical-highlight transition-colors"
+              >
+                LinkedIn
+              </a>
+              <sup class="text-technical-highlight text-[10px] pl-0.5">6</sup>
             </p>
             <p class="font-label-mono text-[11px] text-on-surface-variant mt-2">
               Direct line: engineering &amp; architecture inquiries.

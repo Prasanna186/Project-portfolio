@@ -64,11 +64,9 @@ export const PROJECTS_DATA: Project[] = [
       "3D camera transformation engine with perspective projection",
       "Bézier keyframe curve editor with cubic velocity interpolation",
     ],
-    placeholderImage:
-      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80",
+    placeholderImage: "/assets/projects/after-motion/after-motion-cover.png",
     galleryImages: [
-      "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+      "/assets/projects/after-motion/after-motion-editor.png",
     ],
     liveLink: "https://play.google.com/store/apps/details?id=com.aftermotion.app",
   },

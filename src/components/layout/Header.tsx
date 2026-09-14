@@ -4,6 +4,8 @@ import { useLocation } from "@builder.io/qwik-city";
 export const Header = component$(() => {
   const loc = useLocation();
   const isServices = loc.url.pathname.startsWith("/services");
+  const isTeam = loc.url.pathname.startsWith("/team");
+  const isWork = loc.url.pathname === "/" || loc.url.pathname.startsWith("/projects");
 
   return (
     <nav class="w-full h-14 bg-background/95 backdrop-blur-md border-b border-surface-border sticky top-0 z-50">
@@ -24,7 +26,7 @@ export const Header = component$(() => {
           <a
             href="/"
             class={`font-label-mono text-xs uppercase tracking-wide transition-colors ${
-              !isServices
+              isWork
                 ? "text-technical-highlight font-semibold"
                 : "text-on-surface-variant hover:text-on-background"
             }`}
@@ -41,6 +43,16 @@ export const Header = component$(() => {
           >
             SERVICES
           </a>
+          <a
+            href="/team"
+            class={`font-label-mono text-xs uppercase tracking-wide transition-colors ${
+              isTeam
+                ? "text-technical-highlight font-semibold"
+                : "text-on-surface-variant hover:text-on-background"
+            }`}
+          >
+            TEAM
+          </a>
         </div>
 
         {/* Right Actions */}
@@ -51,7 +63,7 @@ export const Header = component$(() => {
           </div>
 
           <a
-            href="mailto:contact@zenthralabs.dev"
+            href="mailto:kabirajpan2@gmail.com"
             class="font-button text-[11px] uppercase px-3 py-1.5 bg-status-ready text-black font-bold btn-hover hard-shadow border border-transparent cursor-pointer inline-flex items-center gap-1"
           >
             <span class="hidden sm:inline">LET'S BUILD</span>
